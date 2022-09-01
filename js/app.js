@@ -31,8 +31,12 @@ function init() {
   messageEl.textContent = "Enter X or O to start!"
   resetBtn.setAttribute('hidden', true)
   winner = false
+  render()
 }
-console.log(init)
+
+function render() {
+  
+}
 
 //Pseudocode
 // Step 1 - Define the required variables used to track the state of the game
@@ -68,11 +72,11 @@ console.log(init)
 
   //// 3e) Set the `winner` to `null`.
 
-  // 3f) Call a function called `render` at the end of the `init` function.
+  //// 3f) Call a function called `render` at the end of the `init` function.
 
 // Step 4 - The state of the game should be rendered to the user
 
-  // 4a) Create a function called `render`.
+  //// 4a) Create a function called `render`.
 
   // 4b) Loop over `board` and for each element:
   //     - Use the current index of the iteration to access the corresponding 
