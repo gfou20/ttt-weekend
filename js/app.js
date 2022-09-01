@@ -4,7 +4,8 @@
 /*---------------------------- Variables (state) ----------------------------*/
 
 let board = [null, null, null, null, null, null, null, null, null]
-let turn, winner
+let turn = 1
+let winner = null
 console.log(board)
 
 /*------------------------ Cached Element References ------------------------*/
@@ -29,8 +30,9 @@ function init() {
   messageEl.className = ""
   messageEl.textContent = "Enter X or O to start!"
   resetBtn.setAttribute('hidden', true)
-  board = []
+  winner = false
 }
+console.log(init)
 
 //Pseudocode
 // Step 1 - Define the required variables used to track the state of the game
@@ -59,12 +61,12 @@ function init() {
 
   //// 3b) Call this `init` function when the app loads.
 
-  // 3c) Set the `board` variable to an array containing nine `null`s to 
-  //    represent empty squares.
+  //// 3c) Set the `board` variable to an array containing nine `null`s to 
+  ////    represent empty squares.
 
-  // 3d) Set the `turn` to `1` - which will represent player X.
+  //// 3d) Set the `turn` to `1` - which will represent player X.
 
-  // 3e) Set the `winner` to `null`.
+  //// 3e) Set the `winner` to `null`.
 
   // 3f) Call a function called `render` at the end of the `init` function.
 
