@@ -3,7 +3,9 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board, turn, winner
+let board = [null, null, null, null, null, null, null, null, null]
+let turn, winner
+console.log(board)
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -26,6 +28,8 @@ function init() {
   squareEls.textContent = ""
   messageEl.className = ""
   messageEl.textContent = "Enter X or O to start!"
+  resetBtn.setAttribute('hidden', true)
+  board = []
 }
 
 //Pseudocode
