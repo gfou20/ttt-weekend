@@ -11,6 +11,7 @@ const squareEls = document.querySelector('.squares')
 console.log(squareEls)
 const messageEl = document.querySelector('#message')
 console.log(messageEl)
+const resetBtn = document.querySelector("#reset-button")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -18,6 +19,14 @@ console.log(messageEl)
 
 /*-------------------------------- Functions --------------------------------*/
 
+init()
+
+function init() {
+  squareEls.className = ""
+  squareEls.textContent = ""
+  messageEl.className = ""
+  messageEl.textContent = "Enter X or O to start!"
+}
 
 //Pseudocode
 // Step 1 - Define the required variables used to track the state of the game
@@ -42,9 +51,9 @@ console.log(messageEl)
 // Step 3 - Upon loading, the game state should be initialized, and a function 
 //          should be called to render this game state
 
-  // 3a) Create a function called `init`.
+  //// 3a) Create a function called `init`.
 
-  // 3b) Call this `init` function when the app loads.
+  //// 3b) Call this `init` function when the app loads.
 
   // 3c) Set the `board` variable to an array containing nine `null`s to 
   //    represent empty squares.
