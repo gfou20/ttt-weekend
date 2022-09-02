@@ -3,18 +3,18 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board = [null, null, null, null, null, null, null, null, null]
-let turn = 1
-let winner = null
-console.log(board)
+let board, turn, winner
+
+
 
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelector('.squares')
-console.log(squareEls)
+// console.log(squareEls)
 const messageEl = document.querySelector('#message')
-console.log(messageEl)
+// console.log(messageEl)
 const resetBtn = document.querySelector("#reset-button")
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -25,16 +25,17 @@ const resetBtn = document.querySelector("#reset-button")
 init()
 
 function init() {
-  squareEls.className = ""
-  squareEls.textContent = ""
-  messageEl.className = ""
-  messageEl.textContent = "Enter X or O to start!"
-  resetBtn.setAttribute('hidden', true)
-  winner = false
+  board = [null, null, null, null, null, null, null, null, null]
+  turn = 1
+  winner = null
   render()
 }
 
+
 function render() {
+  board.forEach(function(square, idx) {
+    console.log(square, idx)
+  })
   
 }
 
@@ -171,3 +172,10 @@ function render() {
 
   // 8c) Attach an event listener to the `resetBtnEl`. On the `'click'` event 
   //     it should call the `init` function you created in 3.
+
+  // squareEls.className = ""
+  // squareEls.textContent = ""
+  // messageEl.className = ""
+  // messageEl.textContent = "Enter X or O to start!"
+  // resetBtn.setAttribute('hidden', true)
+  // winner = false
