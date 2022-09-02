@@ -10,11 +10,10 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelectorAll('.squares')
-// console.log(squareEls)
+
 const messageEl = document.querySelector('#message')
 
 const resetBtn = document.querySelector("#reset-button")
-
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -34,11 +33,9 @@ function init() {
 
 function render() {
   board.forEach(function(square, idx) {
-    // console.log(square, idx)
-    
+    console.log(square, idx)
+    messageEl.textContent = winner === 'T' ? 'Tie game! Try again?' : winner ? `Player ${win} wins!` : `Player ${turn}'s turn`
     // squareEls[idx].textContent = square
-    // messageEl.textContent = winner === 'T' ? 'Tie game! Try again?' : winner ? `Player ${win} wins!` : `Player ${turn}'s turn`
-    
   })
 }
 
