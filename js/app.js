@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-
+// const = winningCombos
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -9,16 +9,15 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelector('.squares')
+const squareEls = document.querySelectorAll('.squares')
 // console.log(squareEls)
 const messageEl = document.querySelector('#message')
 // console.log(messageEl)
 const resetBtn = document.querySelector("#reset-button")
 
-
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+resetBtn.addEventListener('reset', init)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -28,15 +27,17 @@ function init() {
   board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
+  resetBtn.setAttribute('hidden', true)
   render()
 }
-
 
 function render() {
   board.forEach(function(square, idx) {
     console.log(square, idx)
+    squareEls[idx].textContent = square
+    messageEl.textContent = winner === 'T' ? 'Tie game! Try again?' : winner ? `Player ${win} wins!` : `Player ${turn}'s turn`
+    
   })
-  
 }
 
 //Pseudocode
