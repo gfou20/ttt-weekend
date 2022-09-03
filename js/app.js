@@ -22,11 +22,15 @@ const squareEls = document.querySelectorAll('.squares')
 
 const messageEl = document.querySelector('#message')
 
-const resetBtn = document.querySelector("#reset-button")
+const resetBtnEl = document.querySelector("#reset-button")
+
+const boardEl = document.querySelector('.board')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-resetBtn.addEventListener('reset', init)
+resetBtnEl.addEventListener('reset', init)
+boardEl.addEventListener('click', handleClick)
+
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -36,7 +40,6 @@ function init() {
   board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
-  // resetBtn.setAttribute('hidden', true)
   render()
 }
 
@@ -49,13 +52,21 @@ function render() {
     }
     console.log(square, idx)
     messageEl.textContent = winner === 'T' ? 'Tie game! Try again?' : winner ? `Player ${win} wins!` : `Player ${turn}'s turn`
-    // squareEls[idx].textContent = square
+    squareEls[idx].textContent = square
   })
 }
 
-function
+function handleClick(evt) {
+  const sqIdx 
+  
+}
 
-//Pseudocode
+// function getWinner() {
+
+// }
+
+
+// //Pseudocode
 // Step 1 - Define the required variables used to track the state of the game
 
   //// 1a) Use a variable named `board` to represent the state of the squares on
