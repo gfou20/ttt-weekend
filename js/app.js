@@ -1,5 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
-// const = winningCombos
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+  [1, 4, 7],
+  [0, 3, 6],
+  [2, 5, 8]
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -33,11 +42,18 @@ function init() {
 
 function render() {
   board.forEach(function(square, idx) {
+    if(board[idx] === 1) {
+      squareEls[idx].textContent = 'X'
+    } else if(board[idx] === -1) {
+      squareEls[idx].textContent = 'O'
+    }
     console.log(square, idx)
     messageEl.textContent = winner === 'T' ? 'Tie game! Try again?' : winner ? `Player ${win} wins!` : `Player ${turn}'s turn`
     // squareEls[idx].textContent = square
   })
 }
+
+function
 
 //Pseudocode
 // Step 1 - Define the required variables used to track the state of the game
