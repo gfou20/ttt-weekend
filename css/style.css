@@ -19,11 +19,17 @@ section.board {
   margin-right: auto;
 }
 
+
 div {
   border: 3px solid black;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+}
+
+div:hover {
+  cursor: pointer;
+  background: red;
 }
 
 button {
