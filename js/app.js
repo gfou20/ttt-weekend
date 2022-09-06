@@ -44,6 +44,7 @@ function init() {
 function render() {
   
   board.forEach(function(square, idx) {
+    squareEls[idx].textContent = ''
     if(board[idx] === 1) {
       squareEls[idx].textContent = 'X'
     } else if(board[idx] === -1) {
