@@ -44,14 +44,11 @@ function init() {
 function render() {
   
   board.forEach(function(square, idx) {
-    // console.log(idx)
-    // board[idx] = turn
     if(board[idx] === 1) {
       squareEls[idx].textContent = 'X'
     } else if(board[idx] === -1) {
       squareEls[idx].textContent = 'O'
     }
-    // console.log(squareEls[idx].textContent = "no")
   })  
     if(winner === null) {
       messageEl.textContent = `Player ${turn}'s turn!`
@@ -78,16 +75,10 @@ function render() {
   
 function getWinner() {
   winningCombos.forEach(function(combo) {
-    const initialScore = 0;
-    let totalScore = combo.reduce(
-      (prev, curr) => prev + curr,
-      initialScore
-    )
-    totalScore = Math.abs(totalScore);
-    console.log(totalScore)
-    if(totalScore === 3) {
-      winner = turn
-    } else if(totalScore != 3 && board.includes(null)) {
+
+    if(Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3) {
+      winner = turn *= -1
+    } else if(!board.includes(null)) {
       winner = 'T'
     } else {
       return null
@@ -97,10 +88,6 @@ function getWinner() {
   
 }
 
-function resetGame() {
-  init()
-  resetBtnEl.hidden = true;
-}
 
 
 // //Pseudocode
