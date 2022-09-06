@@ -71,7 +71,7 @@ function render() {
     turn *= -1
     getWinner()
     render()
-
+    
 }
   
 function getWinner() {
@@ -84,7 +84,6 @@ function getWinner() {
     } else {
       return null
     }
-
   })
   
 }
