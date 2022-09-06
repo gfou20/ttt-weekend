@@ -18,18 +18,16 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelectorAll('div')
+const squareEls = document.querySelectorAll('.squareDiv')
 
-const messageEl = document.querySelector('h2')
+const messageEl = document.querySelector('#message')
 
-const resetBtnEl = document.querySelector("#reset-button")
-
-// const boardEl = document.querySelector('.board')
+const resetBtnEl = document.querySelector("button")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-resetBtnEl.addEventListener('reset', init)
-// squareEls.addEventListener('click', handleClick)
+resetBtnEl.addEventListener('click', init)
+squareEls.forEach(square => square.addEventListener('click', handleClick))
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -44,64 +42,65 @@ function init() {
 }
 
 function render() {
+  
   board.forEach(function(square, idx) {
-    console.log(square, idx)
-    // let currentSq = squareEls[idx]
-  //   if(square === 1) {
-  //     squareEls[idx].textContent = 'X'
+    // console.log(idx)
+    // board[idx] = turn
+    if(board[idx] === 1) {
+      squareEls[idx].textContent = 'X'
+    } else if(board[idx] === -1) {
+      squareEls[idx].textContent = 'O'
+    }
+    // console.log(squareEls[idx].textContent = "no")
+  })  
+    if(winner === null) {
+      messageEl.textContent = `Player ${turn}'s turn!`
+    } else if(winner === 'T') {
+      messageEl.textContent = 'Tie game! Try again?'
+    } else {
+      messageEl.textContent = `Player ${winner} wins!`
       
-  //   } else if(square === -1) {
-  //     squareEls[idx].textContent = 'O'
-  //   } else {
-  //     squareEls[idx].textContent = null
-  //   }
+    }
+  }    
+  
+  function handleClick(evt) {
+    const sqIdx = evt.target.id
+    if(board[sqIdx] !== null && winner !== null) {
+      return 
+    } else {
+      board.splice(sqIdx, board[sqIdx] + 1, turn)
+    }
+    turn *= -1
+    getWinner()
+    render()
 
-  //   if(winner === null) {
-  //     messageEl.textContent = `Player ${turn}'s turn!`
-  //   } else if(winner === 'T') {
-  //     messageEl.textContent = 'Tie game! Try again?'
-  //   } else {
-  //     messageEl.textContent = `Player ${winner} wins!`
-  //   }
+}
+  
+function getWinner() {
+  winningCombos.forEach(function(combo) {
+    const initialScore = 0;
+    let totalScore = combo.reduce(
+      (prev, curr) => prev + curr,
+      initialScore
+    )
+    totalScore = Math.abs(totalScore);
+    console.log(totalScore)
+    if(totalScore === 3) {
+      winner = turn
+    } else if(totalScore != 3 && board.includes(null)) {
+      winner = 'T'
+    } else {
+      return null
+    }
+
   })
   
 }
 
-// function handleClick(evt) {
-//   const sqIdx = evt.target.id
-//   // console.log(sqIdx)
-//   if(board[sqIdx] != null && winner != null) {
-//     return
-//   }
-//   board[sqIdx] = turn
-//   // console.log(board)
-//   turn *= -1
-//   // console.log(turn)
-//   getWinner()
-// }
-
-// function getWinner() {
-//   winningCombos.forEach(function(arr) {
-//     // console.log(arr)
-//     const initialScore = 0;
-//     let totalScore = arr.reduce(
-//       (prev, curr) => prev + curr,
-//       initialScore
-//     )
-//     totalScore = Math.abs(totalScore);
-//     if(totalScore === 3) {
-//       winner = turn
-//     } else if(totalScore != 3 && board != null) {
-//       winner = 'T'
-//     } else {
-//       return null
-//     }
-
-//   })
-  
-// }
-// getWinner()
-
+function resetGame() {
+  init()
+  resetBtnEl.hidden = true;
+}
 
 
 // //Pseudocode
